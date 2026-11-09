@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10233f">
+  <meta name="description" content="Practice all 100 NDA SSB personal interview questions with sample answers and self-assessment.">
+  <title>NDA SSB Personal Interview — 100 Question Practice Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="NDA SSB Quiz home">
+      <span class="brand-mark">SSB</span>
+      <span><strong>NDA Interview Prep</strong><small>100-question practice quiz</small></span>
+    </a>
+    <div class="top-actions">
+      <span class="save-status" id="saveStatus" aria-live="polite">Progress saved on this device</span>
+      <button class="button button-quiet" id="resetBtn" type="button">Reset progress</button>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="intro">
+      <div class="eyebrow">PERSONAL INTERVIEW • PRACTICE MODE</div>
+      <h1>Prepare with clarity.<br><span>Respond with confidence.</span></h1>
+      <p>Work through 100 practice-oriented SSB interview questions. Write your own response, compare it with the supplied sample, and assess your readiness honestly.</p>
+      <div class="intro-points">
+        <span>✓ 4 topic sets</span><span>✓ Sample answers</span><span>✓ Saved progress</span><span>✓ Performance report</span>
+      </div>
+    </section>
+
+    <section class="setup-card" aria-label="Quiz settings">
+      <div class="setup-heading"><div><span class="eyebrow">YOUR SESSION</span><h2>Choose your practice set</h2></div><span class="total-chip">100 QUESTIONS</span></div>
+      <div class="setup-controls">
+        <label class="field-label" for="setFilter">Question set
+          <select id="setFilter">
+            <option value="all">All sets — 100 questions</option>
+            <option value="1">Set 1 — Personal background (1–25)</option>
+            <option value="2">Set 2 — Personality & leadership (26–50)</option>
+            <option value="3">Set 3 — Defence knowledge (51–75)</option>
+            <option value="4">Set 4 — Situational & awareness (76–100)</option>
+          </select>
+        </label>
+        <label class="check-field"><input id="shuffleToggle" type="checkbox"><span>Randomize question order</span></label>
+        <button class="button button-primary" id="startBtn" type="button">Start / Apply set <span aria-hidden="true">→</span></button>
+      </div>
+      <p class="setup-note">Changing the set starts a new session for that selection. Your previous saved responses remain available only in the current browser storage until you reset them.</p>
+    </section>
+
+    <section class="workspace" id="quizWorkspace" hidden>
+      <div class="progress-panel">
+        <div class="progress-top"><div><span class="eyebrow">YOUR PROGRESS</span><strong id="progressText">Question 1 of 100</strong></div><span class="progress-percent" id="progressPercent">0%</span></div>
+        <div class="progress-track" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressBar"><span id="progressFill"></span></div>
+        <div class="stats-row"><span><i class="dot dot-done"></i><b id="ratedCount">0</b> assessed</span><span><i class="dot dot-ready"></i><b id="readyCount">0</b> ready</span><span><i class="dot dot-practice"></i><b id="practiceCount">0</b> needs practice</span></div>
+      </div>
+
+      <article class="question-card">
+        <div class="question-meta"><span class="set-badge" id="setBadge">SET 1</span><span id="questionNumber">QUESTION 1</span><span class="bookmark-label">PERSONAL INTERVIEW</span></div>
+        <h2 id="questionText">Question text</h2>
+        <p class="instruction">Answer naturally, using your own real experiences. Avoid memorising the sample response word for word.</p>
+
+        <div class="answer-area">
+          <div class="answer-heading"><label for="answerInput">Your response</label><span id="charCount">0 characters</span></div>
+          <textarea id="answerInput" rows="5" placeholder="Type or draft the answer you would give to the interviewing officer..." spellcheck="true"></textarea>
+          <div class="answer-tools">
+            <button class="text-button" id="hintBtn" type="button">💡 Show hint</button>
+            <button class="text-button" id="sampleBtn" type="button">View sample answer</button>
+          </div>
+          <div class="hint-box" id="hintBox" hidden><strong>Thinking cue</strong><p id="hintText"></p></div>
+          <div class="sample-box" id="sampleBox" hidden>
+            <div class="sample-title"><span>REFERENCE RESPONSE</span><span class="sample-tag">Illustrative sample</span></div>
+            <p id="sampleAnswer"></p>
+            <p class="sample-reminder">Adapt the structure to your own facts and experiences. This is not a script to memorise.</p>
+          </div>
+        </div>
+
+        <section class="assessment" aria-labelledby="assessmentTitle">
+          <div><span class="eyebrow">SELF-ASSESSMENT</span><h3 id="assessmentTitle">How prepared are you to answer this?</h3><p>Choose honestly after considering your response and the sample answer.</p></div>
+          <div class="rating-buttons">
+            <button class="rating rating-ready" id="readyBtn" type="button"><span>✓</span><strong>Ready</strong><small>I can answer clearly</small></button>
+            <button class="rating rating-practice" id="practiceBtn" type="button"><span>↻</span><strong>Needs practice</strong><small>I need more preparation</small></button>
+          </div>
+          <p class="rating-note" id="ratingNote" aria-live="polite">Your self-assessment is recorded for your progress report. It is not an objective judgement of personality or SSB suitability.</p>
+        </section>
+
+        <div class="navigation">
+          <button class="button button-secondary" id="prevBtn" type="button">← Previous</button>
+          <span id="navPosition">1 / 100</span>
+          <button class="button button-primary" id="nextBtn" type="button">Next question →</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="results-card" id="resultsPanel" hidden>
+      <div class="result-icon">✓</div>
+      <span class="eyebrow">SESSION COMPLETE</span>
+      <h2>Your practice report</h2>
+      <p class="result-subtitle">A snapshot of your self-assessment for this session.</p>
+      <div class="result-grid">
+        <div><strong id="resultTotal">100</strong><span>Total questions</span></div>
+        <div><strong id="resultReady" class="green-text">0</strong><span>Marked ready</span></div>
+        <div><strong id="resultPractice" class="red-text">0</strong><span>Needs practice</span></div>
+        <div><strong id="resultPercent">0%</strong><span>Readiness rating*</span></div>
+      </div>
+      <p class="result-disclaimer">*Readiness rating = questions you marked “Ready” divided by questions assessed. It reflects only your self-rating; it is not an SSB score or selection prediction.</p>
+      <div class="result-actions">
+        <button class="button button-primary" id="reviewBtn" type="button">Review questions</button>
+        <button class="button button-secondary" id="retakeBtn" type="button">Retake this set</button>
+        <button class="button button-secondary" id="downloadBtn" type="button">Download report</button>
+        <button class="button button-secondary" id="printBtn" type="button">Print certificate</button>
+      </div>
+      <div class="result-message" id="resultMessage"></div>
+    </section>
+
+    <section class="guidance">
+      <div class="guidance-icon">✦</div>
+      <div><h3>Five golden rules for SSB interview preparation</h3><p>Be truthful • Use real examples • Avoid exaggeration • Stay composed • Admit when you do not know</p><small>Based on the preparation guidance in the supplied question-and-answer document.</small></div>
+    </section>
+  </main>
+
+  <footer><span>NDA SSB Personal Interview Practice</span><span>HTML • CSS • JavaScript · Works offline</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
